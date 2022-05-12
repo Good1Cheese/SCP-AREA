@@ -1,0 +1,96 @@
+{
+    "name": "PlayerContols",
+    "maps": [
+        {
+            "name": "Main",
+            "id": "75c42415-7da4-4241-a3d3-0661c1e7d689",
+            "actions": [
+                {
+                    "name": "Movement",
+                    "type": "Value",
+                    "id": "dc764002-e010-45fe-aa04-8a409cb05ba9",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Mouse",
+                    "type": "Value",
+                    "id": "4c25edc7-0320-400a-bb7b-6f068d10128d",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "2D Vector",
+                    "id": "bcd2c8e1-c9e5-473b-bc09-1b4f82249184",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "ec8770fc-40e0-4ab5-ba2a-ebb8a79d4a9e",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "0d31eaa8-8fd3-4d7a-a277-d19105785a1f",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "b16fb2b6-7fe2-402e-bbc2-6fa9a42c7765",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "7577e525-b245-4c43-a178-16ff256dedc5",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "03978d98-3a83-4f73-a12e-cb1c3ed934be",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "InvertVector2(invertX=false)",
+                    "groups": "",
+                    "action": "Mouse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
