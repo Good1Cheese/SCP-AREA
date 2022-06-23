@@ -15,7 +15,14 @@ MonoBehaviour:
   _prefab: {fileID: 3425795643029459203, guid: 752fb7c385e095745b48b3ce60445c0e, type: 3}
   _startPosition: {x: 8, y: 0, z: 10}
   _startRotation: {x: 0, y: 0, z: 0, w: 0}
-  _moveableComponent:
-    _speed: 3
   _lookableComponent:
     _rotationMultiplier: 3
+    _maxYRotationAngle: 50
+    _minYRotationAngle: -90
+  _speedComponent:
+    _sneak: 2
+    _walk: 4
+    _run: 6.5
+  _speedSmoothComponent:
+    _whileMove: 0.4
+    _whileStop: 0.125

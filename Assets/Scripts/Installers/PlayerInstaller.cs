@@ -1,4 +1,5 @@
-﻿using SCPAREA;
+﻿using Leopotam.Ecs;
+using SCPAREA;
 using SCPAREA.ScriptableObjects;
 using UnityEngine;
 using Zenject;

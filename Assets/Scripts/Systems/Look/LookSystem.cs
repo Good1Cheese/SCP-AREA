@@ -24,12 +24,12 @@ namespace SCPAREA.Systems
                 var input = _contols.Main.Mouse.ReadValue<Vector2>();
                 input *= Time.deltaTime * lookable.RotationMultiplier;
 
-                // TODO Clamp
-
-                lookable.Input += input;
-
-                Quaternion newRotation = Quaternion.Euler(lookable.Input.y, lookable.Input.x, 0);
+                lookable.YRotation += input.y;
+                lookable.YRotation = Mathf.Clamp(lookable.YRotation, lookable.MinYRotationAngle, lookable.MaxYRotationAngle);
+                Quaternion newRotation = Quaternion.Euler(lookable.YRotation, 0, 0);
                 lookable.Head.localRotation = newRotation;
+
+                lookable.Body.Rotate(0, input.x, 0);
             }
         }
     }

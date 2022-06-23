@@ -1,13 +1,13 @@
 ﻿using Leopotam.Ecs;
 using Zenject;
 
-namespace SCPAREA.SystemsListAdders
+namespace SCPAREA.Systems.Groups
 {
-    public abstract class SystemsListAdd<T>
+    public abstract class SystemsGroup<T>
     {
         protected readonly EcsSystems _systems;
 
-        public SystemsListAdd(EcsSystems ecsSystems)
+        public SystemsGroup(EcsSystems ecsSystems)
         {
             _systems = ecsSystems;
         }

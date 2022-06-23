@@ -12,11 +12,15 @@ namespace SCPAREA.ScriptableObjects
 
         [SerializeField] private MoveableComponent _moveableComponent;
         [SerializeField] private LookableComponent _lookableComponent;
+        [SerializeField] private SpeedComponent _speedComponent;
+        [SerializeField] private SpeedSmoothComponent _speedSmoothComponent;
 
         public GameObject Prefab => _prefab;
         public Vector3 StartPosition => _startPosition;
         public Quaternion StartRotation => _startRotation;
-        public MoveableComponent MoveableComponent { get => _moveableComponent; set => _moveableComponent = value; }
-        public LookableComponent LookableComponent { get => _lookableComponent; set => _lookableComponent = value; }
+        public MoveableComponent MoveableComponent { get => _moveableComponent; }
+        public LookableComponent LookableComponent { get => _lookableComponent; }
+        public SpeedComponent SpeedComponent { get => _speedComponent; }
+        public SpeedSmoothComponent SpeedSmoothComponent { get => _speedSmoothComponent; }
     }
 }

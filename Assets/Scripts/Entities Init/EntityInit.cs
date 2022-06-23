@@ -15,17 +15,18 @@ public abstract class EntityInit<T>
 
     public void Init()
     {
+        InstantiateGameObject();
+
         if (!_world.HasEntity(GetType()))
         {
             AddSystems();
         }
 
-        InstantiateGameObject();
         AddComponents();
     }
 
-    protected abstract void AddSystems();
     protected abstract void InstantiateGameObject();
+    protected abstract void AddSystems();
     protected abstract void AddComponents();
 
     public class Factory : PlaceholderFactory<T> { }

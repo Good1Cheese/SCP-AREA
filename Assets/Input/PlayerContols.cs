@@ -44,6 +44,24 @@ public partial class @PlayerContols : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Run"",
+                    ""type"": ""Button"",
+                    ""id"": ""c7e3b971-8730-4239-81e8-591b10fbc31a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Sneak"",
+                    ""type"": ""Button"",
+                    ""id"": ""af2e8310-d1ff-4ce2-8e15-ea09ceaf4bbe"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -112,6 +130,28 @@ public partial class @PlayerContols : IInputActionCollection2, IDisposable
                     ""action"": ""Mouse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""516acef9-0076-436a-a51c-3b3a6694c35f"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Run"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""16db6f4c-26f8-434f-85c4-6e7b9c72714d"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sneak"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -122,6 +162,8 @@ public partial class @PlayerContols : IInputActionCollection2, IDisposable
         m_Main = asset.FindActionMap("Main", throwIfNotFound: true);
         m_Main_Movement = m_Main.FindAction("Movement", throwIfNotFound: true);
         m_Main_Mouse = m_Main.FindAction("Mouse", throwIfNotFound: true);
+        m_Main_Run = m_Main.FindAction("Run", throwIfNotFound: true);
+        m_Main_Sneak = m_Main.FindAction("Sneak", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -183,12 +225,16 @@ public partial class @PlayerContols : IInputActionCollection2, IDisposable
     private IMainActions m_MainActionsCallbackInterface;
     private readonly InputAction m_Main_Movement;
     private readonly InputAction m_Main_Mouse;
+    private readonly InputAction m_Main_Run;
+    private readonly InputAction m_Main_Sneak;
     public struct MainActions
     {
         private @PlayerContols m_Wrapper;
         public MainActions(@PlayerContols wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Main_Movement;
         public InputAction @Mouse => m_Wrapper.m_Main_Mouse;
+        public InputAction @Run => m_Wrapper.m_Main_Run;
+        public InputAction @Sneak => m_Wrapper.m_Main_Sneak;
         public InputActionMap Get() { return m_Wrapper.m_Main; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -204,6 +250,12 @@ public partial class @PlayerContols : IInputActionCollection2, IDisposable
                 @Mouse.started -= m_Wrapper.m_MainActionsCallbackInterface.OnMouse;
                 @Mouse.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnMouse;
                 @Mouse.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnMouse;
+                @Run.started -= m_Wrapper.m_MainActionsCallbackInterface.OnRun;
+                @Run.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnRun;
+                @Run.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnRun;
+                @Sneak.started -= m_Wrapper.m_MainActionsCallbackInterface.OnSneak;
+                @Sneak.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnSneak;
+                @Sneak.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnSneak;
             }
             m_Wrapper.m_MainActionsCallbackInterface = instance;
             if (instance != null)
@@ -214,6 +266,12 @@ public partial class @PlayerContols : IInputActionCollection2, IDisposable
                 @Mouse.started += instance.OnMouse;
                 @Mouse.performed += instance.OnMouse;
                 @Mouse.canceled += instance.OnMouse;
+                @Run.started += instance.OnRun;
+                @Run.performed += instance.OnRun;
+                @Run.canceled += instance.OnRun;
+                @Sneak.started += instance.OnSneak;
+                @Sneak.performed += instance.OnSneak;
+                @Sneak.canceled += instance.OnSneak;
             }
         }
     }
@@ -222,5 +280,7 @@ public partial class @PlayerContols : IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnMouse(InputAction.CallbackContext context);
+        void OnRun(InputAction.CallbackContext context);
+        void OnSneak(InputAction.CallbackContext context);
     }
 }

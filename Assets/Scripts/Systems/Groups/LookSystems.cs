@@ -1,11 +1,11 @@
 ﻿using Leopotam.Ecs;
 using SCPAREA.Systems;
 
-namespace SCPAREA.SystemsListAdders
+namespace SCPAREA.Systems.Groups
 {
-    public class LookSystemsAdd : SystemsListAdd<LookSystemsAdd>
+    public class LookSystems : SystemsGroup<LookSystems>
     {
-        public LookSystemsAdd(EcsSystems ecsSystems)
+        public LookSystems(EcsSystems ecsSystems)
             : base(ecsSystems)
         {
         }

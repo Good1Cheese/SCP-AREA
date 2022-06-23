@@ -1,4 +1,5 @@
 ﻿using Leopotam.Ecs;
+using SCPAREA.Components;
 using System;
 using System.Linq;
 
@@ -19,6 +20,14 @@ namespace SCPAREA
         {
             ref var newComponent = ref ecsEntity.Get<T>();
             newComponent = component;
+        }
+    }
+
+    public static class Player
+    {
+        public static bool IsMoving(MoveableComponent moveable)
+        {
+            return moveable.Input.sqrMagnitude != 0;
         }
     }
 }
